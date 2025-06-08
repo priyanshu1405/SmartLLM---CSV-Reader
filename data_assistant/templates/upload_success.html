@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center">
+
+    <div class="card">
+        <h1>✅ Files uploaded and parsed successfully.</h1>
+        <ul>
+            {% for file in files %}
+                <li>{{ file }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="button-group">
+            <form method="POST" action="/api/ask/">
+                <button type="submit">Ask Queries</button>
+            </form>
+            <form action="/api/upload/">
+                <button type="submit">Add Other CSV</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

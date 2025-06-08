@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload CSV Files</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center">
+    <div class="bg-gray-900 p-8 rounded shadow-lg w-full max-w-md border border-gray-700">
+        <h1 class="text-2xl font-bold mb-4 text-center">Upload Your CSV Files</h1>
+        <form action="/api/upload/" method="POST" enctype="multipart/form-data" class="flex flex-col space-y-4">
+            {% csrf_token %}
+            <input type="file" name="files" multiple accept=".csv" required
+                   class="text-white file:bg-gray-700 file:border-0 file:rounded file:px-4 file:py-2 file:text-white file:cursor-pointer">
+            <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Upload
+            </button>
+        </form>
+    </div>
+</body>
+</html>
